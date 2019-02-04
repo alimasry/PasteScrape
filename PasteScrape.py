@@ -31,7 +31,7 @@ class PasteScrape:
     def __init__(self, url):
 
         response = requests.get(url)
-        soup = BeautifulSoup(response.text, 'lxml')
+        soup = BeautifulSoup(response.text, 'html.parser')
 
         # get the id of the paste
         self.id = self.__get_id(url)
