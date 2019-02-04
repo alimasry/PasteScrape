@@ -35,7 +35,6 @@ def get_lang(lang, id):
 
 # available languages
 
-
 class cpp:
     def __init__(self, id = ''):
         """Open .cpp file."""
