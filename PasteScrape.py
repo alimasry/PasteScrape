@@ -50,7 +50,7 @@ class PasteScrape:
             print(line.text)
 
     def write(self):
-        """Write the data in a file."""
+        """Write the data on a file."""
 
         for line in self.data:
             self.lang.file.write(line.text + '\n')
