@@ -14,7 +14,7 @@ from PasteScrape import PasteScrape
 
 def main():
     test = PasteScrape('https://pastebin.com/5Uu3aKqS')  #takes the link of the paste you want to scrap
-    test.write()                                         # write the data in a file
+    test.write()                                         # write the data on a file
     test.print()                                         # print the data on the screen
 
 main()
