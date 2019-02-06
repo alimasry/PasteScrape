@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from languages import *
 
 class PasteScrape:
-    """Scrap pastes from Pastebin.
+    """Scrape pastes from Pastebin.
 
     Parameters:
     -----------
