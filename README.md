@@ -16,6 +16,7 @@ def main():
     test = PasteScrape('https://pastebin.com/5Uu3aKqS')  #takes the link of the paste you want to scrap
     test.write()                                         # write the data on a file
     test.print()                                         # print the data on the screen
+    paste = test.get()                                   # put the data in the string paste
 
 main()
 
