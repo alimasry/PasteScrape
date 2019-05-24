@@ -25,6 +25,8 @@ class PasteScrape:
         Print the text of the paste on the screen.
     write()
         Write the text of the paste in a file.
+    get()
+        Return the text of the paste in a string
     __get_id(url)
         Return the id of the paste given its url.
     """
@@ -45,16 +47,24 @@ class PasteScrape:
         self.data = soup.find_all(True, {'class' : ['de1', 'de2']})
 
     def print(self):
-        """Print the data."""
+        """Print the Text of the paste."""
 
         for line in self.data:
             print(line.text)
 
     def write(self):
-        """Write the data in a file."""
+        """Write the the text of the paste in a file."""
 
         for line in self.data:
             self.lang.file.write(line.text + '\n')
+
+    def get(self):
+        """Return the text of the paste in a string. """
+
+        paste = ''
+        for line in self.data:
+            paste += line.text + '\n'
+        return paste
 
     def __get_id(self, url):
         """Return the id of the paste.
