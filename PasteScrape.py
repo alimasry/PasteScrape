@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from languages import *
 
 class PasteScrape:
-    """Scrape pastes from Pastebin.
+    """Scrap pastes from Pastebin.
 
     Parameters:
     -----------
@@ -29,8 +29,9 @@ class PasteScrape:
         Return the id of the paste given its url.
     """
     def __init__(self, url):
-
-        response = requests.get(url)
+        
+        headers = {'User-Agent': 'Mozilla/5.0'}
+        response = requests.get(url, headers = headers)
         soup = BeautifulSoup(response.text, 'html.parser')
 
         # get the id of the paste
@@ -41,7 +42,7 @@ class PasteScrape:
         self.lang = get_lang(lang[len(lang) - 1].text, self.id)
 
         # get the text
-        self.data = soup.find_all(class_='de1')
+        self.data = soup.find_all(True, {'class' : ['de1', 'de2']})
 
     def print(self):
         """Print the data."""
@@ -50,7 +51,7 @@ class PasteScrape:
             print(line.text)
 
     def write(self):
-        """Write the data on a file."""
+        """Write the data in a file."""
 
         for line in self.data:
             self.lang.file.write(line.text + '\n')
